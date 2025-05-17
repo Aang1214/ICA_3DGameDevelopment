@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 373a888c48fd97d4a8c80e2d163a3d86, type: 3}
-  m_Name: General 1
+  m_Script: {fileID: 11500000, guid: eb06f1c818cd2e14791e03f6d58e5f61, type: 3}
+  m_Name: Plastic
   m_EditorClassIdentifier: 
   prefab: {fileID: 0}
   type: 2

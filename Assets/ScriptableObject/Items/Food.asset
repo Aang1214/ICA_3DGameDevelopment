@@ -9,7 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84a016ff314efab4cb8f292196a662a0, type: 3}
-  m_Name: PlayerInventory
+  m_Script: {fileID: 11500000, guid: 2edbd6ec35f7c254abc8de753c62ffff, type: 3}
+  m_Name: Food
   m_EditorClassIdentifier: 
-  Container: []
+  prefab: {fileID: 0}
+  type: 2
+  description: 
