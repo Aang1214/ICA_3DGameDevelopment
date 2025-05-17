@@ -9,7 +9,7 @@ public enum ItemType
     paper
 }
 
-public abstract class Item : ScriptableObject
+public abstract class ItemObject : ScriptableObject
 {
     public GameObject prefab;
     public ItemType type;
