@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb06f1c818cd2e14791e03f6d58e5f61, type: 3}
   m_Name: Plastic
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
-  type: 2
+  prefab: {fileID: 3371791151392241809, guid: 1ea3409492b13fa4eb6028b7d32b3510, type: 3}
+  type: 0
   description: 

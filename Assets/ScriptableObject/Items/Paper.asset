@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bec403e458607be4fa7bc9cc75411db2, type: 3}
   m_Name: Paper
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 6801160660747798093, guid: 36423010c92d4f0409b656ddd3fd3d04, type: 3}
   type: 3
   description: 
