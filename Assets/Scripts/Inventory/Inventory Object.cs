@@ -6,6 +6,7 @@ using UnityEngine;
 public class InventoryObject : ScriptableObject
 {
     public List<InventorySlot> Container = new List<InventorySlot>();
+
     public void AddItem(ItemObject _item, int _amount)
     {
         bool hasItem = false;
@@ -22,7 +23,24 @@ public class InventoryObject : ScriptableObject
         {
             Container.Add(new InventorySlot(_item, _amount));
         }
-}
+    }
+
+    public bool RemoveItem(ItemObject _item, int _amount)
+    {
+        for (int i = 0; i < Container.Count; i++)
+        {
+            if (Container[i].item == _item)
+            {
+                Container[i].RemoveAmount(_amount);
+                if (Container[i].amount <= 0)
+                {
+                    Container.RemoveAt(i);
+                }
+                return true;
+            }
+        }
+        return false;
+    }
 
     [System.Serializable]
     public class InventorySlot
@@ -38,6 +56,9 @@ public class InventoryObject : ScriptableObject
         {
             amount += value;
         }
-
+        public void RemoveAmount(int value)
+        {
+            amount -= value;
+        }
     }
 }
