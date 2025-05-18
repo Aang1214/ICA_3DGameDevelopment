@@ -26,6 +26,6 @@ public class PlayerIn : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        inventory.Container.Clear();
+        inventory.ResetInventory();
     }
 }

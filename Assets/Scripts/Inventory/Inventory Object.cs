@@ -6,6 +6,7 @@ using UnityEngine;
 public class InventoryObject : ScriptableObject
 {
     public List<InventorySlot> Container = new List<InventorySlot>();
+    public int PlayerMoney { get; private set; }
 
     public void AddItem(ItemObject _item, int _amount)
     {
@@ -32,6 +33,8 @@ public class InventoryObject : ScriptableObject
             if (Container[i].item == _item)
             {
                 Container[i].RemoveAmount(_amount);
+                PlayerMoney += _item.sellValue * _amount;
+
                 if (Container[i].amount <= 0)
                 {
                     Container.RemoveAt(i);
@@ -40,6 +43,22 @@ public class InventoryObject : ScriptableObject
             }
         }
         return false;
+    }
+
+    public bool SpendMoney(int amount)
+    {
+        if (PlayerMoney >= amount)
+        {
+            PlayerMoney -= amount;
+            return true;
+        }
+        return false;
+    }
+
+    public void ResetInventory()
+    {
+        Container.Clear();
+        PlayerMoney = 0;
     }
 
     [System.Serializable]
