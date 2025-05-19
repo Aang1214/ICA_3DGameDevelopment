@@ -84,6 +84,5 @@ public class InventoryObject : ScriptableObject
     public void AddMoney(int amount)
     {
         PlayerMoney += amount;
-
     }
 }

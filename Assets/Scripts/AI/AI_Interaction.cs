@@ -17,7 +17,7 @@ public class AI_Interaction : MonoBehaviour
 
     void Start()
     {
-       
+        // Ensure this object's collider is set to trigger
         Collider col = GetComponent<Collider>();
         if (col != null)
         {
@@ -34,7 +34,7 @@ public class AI_Interaction : MonoBehaviour
         if (!_isActive || !other.CompareTag(targetTag))
             return;
 
-        
+        // 1. Disable the Capsule Collider of the object we hit
         CapsuleCollider capsule = other.GetComponent<CapsuleCollider>();
         if (capsule != null)
         {
@@ -42,19 +42,19 @@ public class AI_Interaction : MonoBehaviour
         }
         else
         {
-            
+            // Fallback to disabling the whole object if no capsule found
             other.gameObject.SetActive(false);
             Debug.LogWarning("No CapsuleCollider found - disabled entire GameObject instead");
         }
 
-        
+        // 2. Add money directly to inventory
         if (inventory != null)
         {
             inventory.AddMoney(moneyPerItem);
             Debug.Log($"Added {moneyPerItem} money. Total: {inventory.PlayerMoney}");
         }
 
-        
+        // 3. Pause logic
         StartCoroutine(PauseInteraction());
     }
 
