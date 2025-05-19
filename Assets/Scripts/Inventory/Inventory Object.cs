@@ -5,9 +5,13 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Inventory", menuName = "Inventory System/Inventory")]
 public class InventoryObject : ScriptableObject
 {
+    // List of all item slots currently in the inventory
     public List<InventorySlot> Container = new List<InventorySlot>();
+    // Tracks the player's current money
     public int PlayerMoney { get; private set; }
-
+    /// <summary>
+    /// Adds an item to the inventory. If the item already exists, increase its amount.
+    /// </summary>
     public void AddItem(ItemObject _item, int _amount)
     {
         bool hasItem = false;
@@ -25,7 +29,10 @@ public class InventoryObject : ScriptableObject
             Container.Add(new InventorySlot(_item, _amount));
         }
     }
-
+    /// <summary>
+    /// Removes a specified amount of an item from the inventory.
+    /// If removed, money is added based on the item's sell value.
+    /// </summary>
     public bool RemoveItem(ItemObject _item, int _amount)
     {
         for (int i = 0; i < Container.Count; i++)
@@ -45,22 +52,17 @@ public class InventoryObject : ScriptableObject
         return false;
     }
 
-    public bool SpendMoney(int amount)
-    {
-        if (PlayerMoney >= amount)
-        {
-            PlayerMoney -= amount;
-            return true;
-        }
-        return false;
-    }
-
+    /// <summary>
+    /// Resets the inventory and money to their default states.
+    /// </summary>
     public void ResetInventory()
     {
         Container.Clear();
         PlayerMoney = 0;
     }
-    
+    /// <summary>
+    /// Represents a single slot in the inventory, storing an item and its quantity.
+    /// </summary>
     [System.Serializable]
     public class InventorySlot
     {
@@ -80,12 +82,16 @@ public class InventoryObject : ScriptableObject
             amount -= value;
         }
     }
-
+    /// <summary>
+    /// Adds money to the player's total.
+    /// </summary>
     public void AddMoney(int amount)
     {
         PlayerMoney += amount;
     }
-
+    /// <summary>
+    /// Reduces the player's money by a given amount.
+    /// </summary>
     public void ReduceMoney(int amount)
     {
         PlayerMoney -= amount;

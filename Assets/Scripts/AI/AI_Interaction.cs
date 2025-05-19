@@ -1,27 +1,26 @@
-using UnityEngine;
-using UnityEngine.AI;
-using static InventoryObject;
+using static InventoryObject; // Import static members from InventoryObject
 using System.Collections;
+using UnityEngine;
 
 public class AI_Interaction : MonoBehaviour
 {
     [Header("Settings")]
-    public float pauseTime = 2f;
-    public string targetTag = "General";
-    public int moneyPerItem = 10;
+    public float pauseTime = 2f;           // Time to pause after interaction before allowing more
+    public string targetTag = "General";   // Tag of objects this AI should interact with
+    public int moneyPerItem = 10;          // Amount of money added per interaction
 
     [Header("References")]
-    public InventoryObject inventory;
+    public InventoryObject inventory;      // Reference to the player
 
-    private bool _isActive = true;
+    private bool _isActive = true;         // Determines whether the AI is currently ready to interact
 
     void Start()
     {
-        // Ensure this object's collider is set to trigger
+        // Ensure this object has a trigger collider
         Collider col = GetComponent<Collider>();
         if (col != null)
         {
-            col.isTrigger = true;
+            col.isTrigger = true; // Set collider to trigger mode
         }
         else
         {
@@ -29,12 +28,14 @@ public class AI_Interaction : MonoBehaviour
         }
     }
 
+    // Called when another collider enters this trigger
     void OnTriggerEnter(Collider other)
     {
+        // Exit if this AI is inactive or the object doesn't have the target tag
         if (!_isActive || !other.CompareTag(targetTag))
             return;
 
-        // 1. Disable the Capsule Collider of the object we hit
+        // Try to disable the CapsuleCollider on the target object
         CapsuleCollider capsule = other.GetComponent<CapsuleCollider>();
         if (capsule != null)
         {
@@ -42,26 +43,27 @@ public class AI_Interaction : MonoBehaviour
         }
         else
         {
-            // Fallback to disabling the whole object if no capsule found
+            // If no CapsuleCollider, disable the whole GameObject as a fallback
             other.gameObject.SetActive(false);
             Debug.LogWarning("No CapsuleCollider found - disabled entire GameObject instead");
         }
 
-        // 2. Add money directly to inventory
+        // Add money to the inventory
         if (inventory != null)
         {
             inventory.AddMoney(moneyPerItem);
             Debug.Log($"Added {moneyPerItem} money. Total: {inventory.PlayerMoney}");
         }
 
-        // 3. Pause logic
+        // Start cooldown before next interaction
         StartCoroutine(PauseInteraction());
     }
 
+    // Coroutine to pause interactions temporarily
     IEnumerator PauseInteraction()
     {
-        _isActive = false;
+        //_isActive = false; // Uncomment to disable interaction during pause
         yield return new WaitForSeconds(pauseTime);
-        _isActive = true;
+        //_isActive = true;  // Uncomment to re-enable interaction after pause
     }
 }
