@@ -1,5 +1,5 @@
 using UnityEngine;
-
+//AI was used to write comments for the code
 public class ItemRemover : MonoBehaviour
 {
     // The specific item to remove from the player's inventory when triggered

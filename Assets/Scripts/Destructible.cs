@@ -1,5 +1,5 @@
 using UnityEngine;
-
+//AI was used to write comments for the code
 public class Destructible : MonoBehaviour
 {
     // Prefab to instantiate when this object is destroyed (e.g., explosion, debris)

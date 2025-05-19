@@ -1,6 +1,6 @@
 using TMPro;
 using UnityEngine;
-
+//AI was used to write comments for the code
 public class Money : MonoBehaviour
 {
     // Reference to the InventoryObject that holds the player's money

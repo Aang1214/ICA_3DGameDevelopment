@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [CreateAssetMenu(fileName = "New Inventory", menuName = "Inventory System/Inventory")]
+//AI was used to write comments for the code
 public class InventoryObject : ScriptableObject
 {
     // List of all item slots currently in the inventory

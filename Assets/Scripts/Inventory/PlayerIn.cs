@@ -1,6 +1,7 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
-using static InventoryObject; // Allows static access to members in InventoryObject (if needed)
+using static InventoryObject; // Allows static access to members in InventoryObject 
+//AI was used to write comments for the code
 
 public class PlayerIn : MonoBehaviour
 {

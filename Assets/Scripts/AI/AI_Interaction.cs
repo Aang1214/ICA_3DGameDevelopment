@@ -2,6 +2,8 @@ using static InventoryObject; // Import static members from InventoryObject
 using System.Collections;
 using UnityEngine;
 
+//AI was used to write comments for the code
+
 public class AI_Interaction : MonoBehaviour
 {
     [Header("Settings")]

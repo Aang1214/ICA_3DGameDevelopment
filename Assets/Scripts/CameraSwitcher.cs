@@ -1,6 +1,6 @@
 using UnityEngine;
 using Unity.Cinemachine; // Ensure you're using the correct Cinemachine namespace
-
+//AI was used to write comments for the code
 public class CameraSwitcher : MonoBehaviour
 {
     // References to the Cinemachine cameras

@@ -1,5 +1,5 @@
 using UnityEngine;
-
+//AI was used to write comments for the code
 public class ClickActivateCollider : MonoBehaviour
 {
     [Header("Settings")]

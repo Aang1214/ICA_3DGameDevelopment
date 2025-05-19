@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using static InventoryObject;
 using TMPro;
-
+//AI was used to write comments for the code
 public class DisplayInventory : MonoBehaviour
 {
     // Reference to the inventory to display

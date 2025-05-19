@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using System.Collections;
 using Unity.Behavior; // Ensure this is a valid namespace in your project
-
+//AI was used to write comments for the code
 public class BuyAI : MonoBehaviour
 {
     // Reference to the NavMeshAgent component for movement
