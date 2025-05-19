@@ -8,6 +8,9 @@ public class Money : MonoBehaviour
 
     void Update()
     {
-        moneyText.text = $"Money: {inventory.PlayerMoney}";
+        if (inventory != null && moneyText != null)
+        {
+            moneyText.text = $"Money: {inventory.PlayerMoney}";
+        }
     }
 }

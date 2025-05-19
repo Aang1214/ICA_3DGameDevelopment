@@ -1,10 +1,10 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
-
+using static InventoryObject;
 public class PlayerIn : MonoBehaviour
 {
     public InventoryObject inventory;
-
+    public int PlayerMoney { get; private set; }
     public void OnTriggerEnter(Collider other)
     {
         var item = other.GetComponent<Item>();
@@ -28,4 +28,6 @@ public class PlayerIn : MonoBehaviour
     {
         inventory.ResetInventory();
     }
+
+    
 }

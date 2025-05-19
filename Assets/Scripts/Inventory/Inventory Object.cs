@@ -60,7 +60,7 @@ public class InventoryObject : ScriptableObject
         Container.Clear();
         PlayerMoney = 0;
     }
-
+    
     [System.Serializable]
     public class InventorySlot
     {
@@ -79,5 +79,11 @@ public class InventoryObject : ScriptableObject
         {
             amount -= value;
         }
+    }
+
+    public void AddMoney(int amount)
+    {
+        PlayerMoney += amount;
+
     }
 }
