@@ -5,29 +5,33 @@ using Unity.Behavior;
 
 
 public class BuyAI : MonoBehaviour
-{ 
+{
     public NavMeshAgent NavMeshAgent;
     public int aiCost = 100;
     public KeyCode purchaseKey = KeyCode.E;
     public InventoryObject inventory;
-    
+
+    private bool isPurchased = false;
+
     void Start()
     {
         NavMeshAgent = GetComponent<NavMeshAgent>();
-        
-        
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(purchaseKey))
+        
+        if (!isPurchased && Input.GetKeyDown(purchaseKey))
         {
-            NavMeshAgent.speed = 3;
+            if (inventory != null && inventory.PlayerMoney >= aiCost)
+            {
+                inventory.ReduceMoney(aiCost);
+                isPurchased = true;
+                Debug.Log("AI purchased!");
+            }
         }
-        else  
-        {
-            NavMeshAgent.speed = 0;
-        }
+
+        
+        NavMeshAgent.speed = isPurchased ? 3 : 0;
     }
 }
