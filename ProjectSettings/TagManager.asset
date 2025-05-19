@@ -8,6 +8,9 @@ TagManager:
   - ItemRemover
   - General
   - AI
+  - Food
+  - Plastic
+  - Paper
   layers:
   - Default
   - TransparentFX

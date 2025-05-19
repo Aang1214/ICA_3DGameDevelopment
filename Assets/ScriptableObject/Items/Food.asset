@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Food
   m_EditorClassIdentifier: 
   prefab: {fileID: 1740539712938034084, guid: ff864aaaff8323548b7cf34dd960d662, type: 3}
-  type: 1
+  type: 2
   description: Waste of food
+  sellValue: 15

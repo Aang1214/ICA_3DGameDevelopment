@@ -15,3 +15,4 @@ MonoBehaviour:
   prefab: {fileID: 8848638688470830864, guid: a18306be52b68904d954fa7a882cebb7, type: 3}
   type: 2
   description: 
+  sellValue: 5

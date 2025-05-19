@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Plastic
   m_EditorClassIdentifier: 
   prefab: {fileID: 3371791151392241809, guid: 1ea3409492b13fa4eb6028b7d32b3510, type: 3}
-  type: 0
+  type: 2
   description: 
+  sellValue: 20
